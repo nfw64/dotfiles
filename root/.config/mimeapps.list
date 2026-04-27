@@ -6,6 +6,8 @@ image/gif=mpv.desktop;
 application/vnd.tcpdump.pcap=nvim.desktop;
 application/octet-stream=nvim.desktop;
 application/vnd.sqlite3=nvim.desktop;
+application/schema+json=nvim.desktop;
+application/json=nvim.desktop;
 
 [Default Applications]
 text/x-install=nvim.desktop
@@ -91,3 +93,5 @@ image/gif=mpv.desktop
 application/vnd.tcpdump.pcap=nvim.desktop
 application/octet-stream=nvim.desktop
 application/vnd.sqlite3=nvim.desktop
+application/schema+json=nvim.desktop
+application/json=nvim.desktop

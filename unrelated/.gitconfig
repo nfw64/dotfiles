@@ -1,0 +1,22 @@
+[user]
+    email = chopopzml@gmail.com
+	name = nfw64
+[alias]
+	root = rev-parse --show-toplevel
+	st = status
+	ci = commit
+	po = push origin
+	cp = cherry-pick
+	patch = !ptch
+	subup = "submodule update --init --recursive"
+	fixupi = "ci --fixup=HEAD"
+[gc]
+	autoDetach = false
+[credential]
+	helper = store
+[merge]
+	tool = vimdiff
+[mergetool "vimdiff"]
+	path = nvim
+[init]
+	defaultBranch = main

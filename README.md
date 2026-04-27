@@ -36,7 +36,7 @@ sudo pacman -S hyprland hyprlock hypridle waybar swaync alacritty cava rofi pavu
 And run this with your AUR helper (example with yay):
 
 ```sh
-yay -S spicetify-cli vscodium-bin zen-browser-bin peaclock bibata-cursor-theme kripton-theme-git
+yay -S  zen-browser-bin peaclock bibata-cursor-theme kripton-theme-git
 ```
 
 ### XDG base directories
@@ -69,10 +69,10 @@ After successful installation, you can safely uninstall the script
 yay -Rns papirus-folders-git
 ```
 
-Now clone the repo & run the installer:
+Now clone the repo & use stow:
 
 ```sh
 git clone https://github.com/nfw64/dotfiles.git --depth=1
-cd dotfiles
-./install # Do not run as super user!
+cd dotfiles/root
+stow (currently working on it)
 ```
