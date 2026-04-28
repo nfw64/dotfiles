@@ -13,18 +13,6 @@
 	<directories/>
 </action>
 <action>
-	<icon>vscodium</icon>
-	<name>Open in codium</name>
-	<submenu></submenu>
-	<unique-id>1735781946752596-1</unique-id>
-	<command>codium -n %f</command>
-	<description>Opens provided dierctory in vscodium</description>
-	<range>*</range>
-	<patterns>*</patterns>
-	<directories/>
-	<text-files/>
-</action>
-<action>
 	<icon>preferences-desktop-wallpaper</icon>
 	<name>Set as wallpaper</name>
 	<submenu></submenu>

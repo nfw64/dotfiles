@@ -1,28 +1,28 @@
 #!/bin/bash
 prompt() {
     read -r -p $'\033[35m'"$1"$'\033[32m [Y/n] \033[0m' CHOICE
-    if [ -z "$CHOICE" ]; then 
-        echo 1 
+    if [ -z "$CHOICE" ]; then
+        echo 1
     else
-        case "$CHOICE" in 
-            y|Y ) echo 1;;
-            n|N ) echo 0;;
+        case "$CHOICE" in
+        y | Y) echo 1 ;;
+        n | N) echo 0 ;;
         esac
     fi
 }
 
-red() { 
-    printf '\033[31m%s\033[0m\n' "$*"; 
+red() {
+    printf '\033[31m%s\033[0m\n' "$*"
 }
 
-yellow() { 
-    printf '\033[33m%s\033[0m\n' "$*"; 
+yellow() {
+    printf '\033[33m%s\033[0m\n' "$*"
 }
 
-green() { 
-    printf '\033[32m%s\033[0m\n' "$*"; 
+green() {
+    printf '\033[32m%s\033[0m\n' "$*"
 }
-if ! command -v stow ; then
+if ! command -v stow; then
     red "Stow is not installed, please install it first"
     exit
 fi
@@ -44,7 +44,7 @@ if [ -e "$OLD_DIR" ]; then
             OLD_DIR="$CANDIDATE"
             break
         fi
-        i=$((i+1))
+        i=$((i + 1))
     done
 fi
 
@@ -53,9 +53,8 @@ DEST=$HOME
 CONFIG_FILE="$DEST/.config/dotfiles/config"
 mkdir -p "$(dirname "$CONFIG_FILE")"
 
-
 if [ ! -f "$CONFIG_FILE" ] || ! grep -q "REPO_ROOT=" "$CONFIG_FILE"; then
-    echo "REPO_ROOT=$SRC" > "$CONFIG_FILE"
+    echo "REPO_ROOT=$SRC" >"$CONFIG_FILE"
     green "Config created: REPO_ROOT set to $SRC"
 else
     yellow "REPO_ROOT already set in $CONFIG_FILE. Skipping overwrite."
@@ -83,7 +82,6 @@ mkdir -p $DEST/.local
 mkdir -p $DEST/.local/share/applications
 mkdir -p $DEST/.local/share/templates
 
-
 green "Backup old files"
 
 cp -r $DEST/.config $OLD_DIR
@@ -100,6 +98,9 @@ cd ../
 green "Installing wallpapers ..."
 
 mkdir -p $DEST/Media/pictures/
+mkdir -p $DEST/Media/videos/
+mkdir -p $DEST/Media/music/
+mkdir -p $DEST/Media/docs/
 cp -r $SRC/wallpapers $DEST/Media/pictures/
 
 # If there is powerprofilesctl installed, replace waybar start module with power-profiles module
@@ -108,7 +109,7 @@ if command -v powerprofilesctl >/dev/null 2>&1; then
         "$DEST/.config/waybar/layouts/with_music.jsonc"
         "$DEST/.config/waybar/layouts/with_window.jsonc"
     )
-    
+
     for FILE in "${WAYBAR_FILES[@]}"; do
         sed -i 's|custom/start|power-profiles-daemon|g' "$FILE"
     done
@@ -141,7 +142,7 @@ if [ $(prompt "Would you like to install custom zen-browser theme?") = 1 ]; then
         echo "Additional info:"
         cat $SRC/.zen/README.md
         echo ""
-    else 
+    else
         if [ -d "$ZEN_DIR/chrome" ]; then
             mkdir -p $OLD_DIR/.zen
             mv "$ZEN_DIR/chrome" "$OLD_DIR/.zen"

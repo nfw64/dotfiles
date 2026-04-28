@@ -1,12 +1,9 @@
-alias vcs="git status"
-alias lsa="ls -a"
-alias ztime="zinit times --all"
+alias ls="eza"
+alias lsa="eza -a"
+alias lsl="eza -al"
+alias ztime="zinit times -m"
 alias zrel="exec zsh"
-alias wireadb='(python ~/fport.py)'
-alias adbt="sh ~/adbt.sh"
-alias shz='(adb connect localhost && adb -s localhost:5555 shell /data/app/~~RX4V4gy2STIU4seIkFQlgA==/moe.shizuku.privileged.api-d3t8pbzLtNBTLdyhcAUbFA==/lib/arm64/libshizuku.so)'
 alias g="grep"
 alias psx="ps aux | grep"
 alias svim="sudoedit"
 alias vim="nvim"
-alias lsl="ls -al"

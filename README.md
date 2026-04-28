@@ -1,4 +1,4 @@
-# Hyprland Dotfiles
+# My dotfiles
 [![Origin](https://img.shields.io/badge/Origin-GitHub-blue?style=flat-square&logo=github)](https://github.com/cebem1nt/dotfiles)
 
 Minimalist, performance-oriented configuration for Hyprland on CachyOS.
@@ -11,7 +11,7 @@ Minimalist, performance-oriented configuration for Hyprland on CachyOS.
 | **Menus** | [Rofi](https://github.com/adi1090x/rofi) (Collection by adi1090x) |
 | **Terminal** | Alacritty |
 | **Shell** | Zsh ([zinit](https://github.com/zdharma-continuum/zinit)) |
-| **Font** | Cascadia Code |
+| **Font** | Jetbrains Mono (alacritty), Inter (system-wide)  |
 | **GTK Theme** | [Kripton](https://github.com/EliverLara/Kripton) / [Tokyonight](https://github.com/Fausto-Korpsvart/Tokyonight-GTK-Theme) (Light) |
 | **Icons** | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) |
 | **Fetch** | fastfetch |
@@ -37,13 +37,13 @@ curl -sS https://starship.rs/install.sh | sh
 ```
 
 ```sh
-sudo pacman -S hyprland hyprlock hypridle waybar swaync alacritty cava rofi pavucontrol thunar zsh ttf-cascadia-code ttf-cascadia-code-nerd awww python-psutil eza fzf htop jq neovim xdg-desktop-portal-gtk xdg-desktop-portal-hyprland grim slurp nvtop nwg-look mission-center powertop qt6ct kvantum noto-fonts noto-fonts-emoji flameshot wtype papirus-icon-theme hyprpolkitagent gnome-keyring-daemon cliphist network-manager-applet
+sudo pacman -S hyprland hyprlock hypridle waybar swaync alacritty cava rofi pavucontrol thunar zsh awww python-psutil eza fzf htop jq neovim xdg-desktop-portal-gtk xdg-desktop-portal-hyprland grim slurp nvtop nwg-look mission-center powertop qt6ct kvantum noto-fonts noto-fonts-emoji flameshot wtype papirus-icon-theme hyprpolkitagent gnome-keyring-daemon cliphist network-manager-applet gvfs
 ```
 
 And run this with your AUR helper (example with yay):
 
 ```sh
-yay -S  zen-browser-bin peaclock bibata-cursor-theme kripton-theme-git papirus-folders-git pay-respects-bin
+yay -S  zen-browser-bin peaclock googledot-cursor-theme kripton-theme-git papirus-folders-git pay-respects-bin nerd-fonts-inter ttf-jetbrains-mono-nerd
 ```
 
 ### XDG base directories
