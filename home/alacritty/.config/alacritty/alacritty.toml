@@ -3,10 +3,17 @@ dynamic_title = false
 padding.x = 10
 padding.y = 10
 
-[font]
-normal.family = "CaskaydiaCove Nerd Font Propo"
-normal.style = "Bold"
-size = 13
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "SemiBold"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "SemiBold Italic"
 
 [cursor]
 # style.shape = "Beam"

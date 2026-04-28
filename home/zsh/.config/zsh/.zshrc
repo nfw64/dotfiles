@@ -41,9 +41,9 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 ### Themes
 
-setopt promptsubst
-zinit snippet OMZL::git.zsh
-zinit snippet OMZT::lukerandall
+#setopt promptsubst
+#zinit snippet OMZL::git.zsh
+#zinit snippet OMZT::lukerandall
 
 ###
 
@@ -112,4 +112,5 @@ source $XDG_CONFIG_HOME/zsh/.zsh_aliases
 
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
+eval "$(starship init zsh)"
 eval "$(pay-respects zsh)"

@@ -95,3 +95,4 @@ application/octet-stream=nvim.desktop
 application/vnd.sqlite3=nvim.desktop
 application/schema+json=nvim.desktop
 application/json=nvim.desktop
+x-scheme-handler/jetbrains=jetbrainsd.desktop
