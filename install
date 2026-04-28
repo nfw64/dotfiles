@@ -99,8 +99,8 @@ cd ../
 # Move wallpapers.
 green "Installing wallpapers ..."
 
-mkdir -p $DEST/media/pictures/
-cp -r $SRC/wallpapers $DEST/media/pictures/
+mkdir -p $DEST/Media/pictures/
+cp -r $SRC/wallpapers $DEST/Media/pictures/
 
 # If there is powerprofilesctl installed, replace waybar start module with power-profiles module
 if command -v powerprofilesctl >/dev/null 2>&1; then
@@ -123,7 +123,7 @@ if [ $(prompt "Would you like to install papirus-folders bluegrey?") = 1 ]; then
         green "Setting bluegrey folders for icon theme..."
         papirus-folders -C bluegrey
     else
-        yay -S papirus-folders
+        yay -S papirus-folders-git
         green "Setting bluegrey folders for icon theme..."
         papirus-folders -C bluegrey
     fi

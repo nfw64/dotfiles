@@ -31,13 +31,13 @@ Minimalist, performance-oriented configuration for Hyprland on CachyOS.
 The installation script assumes you have a minimal working system! Firstly lets install all the necessary packages. On arch based distros you can copy & paste this command:
 
 ```sh
-sudo pacman -S hyprland hyprlock hypridle waybar swaync alacritty cava rofi pavucontrol thunar zsh ttf-cascadia-code ttf-cascadia-code-nerd awww python-psutil eza fzf htop jq neovim xdg-desktop-portal-gtk xdg-desktop-portal-hyprland grim slurp nvtop nwg-look mission-center powertop qt6ct kvantum noto-fonts noto-fonts-emoji flameshot wtype papirus-icon-theme hyprpolkitagent
+sudo pacman -S hyprland hyprlock hypridle waybar swaync alacritty cava rofi pavucontrol thunar zsh ttf-cascadia-code ttf-cascadia-code-nerd awww python-psutil eza fzf htop jq neovim xdg-desktop-portal-gtk xdg-desktop-portal-hyprland grim slurp nvtop nwg-look mission-center powertop qt6ct kvantum noto-fonts noto-fonts-emoji flameshot wtype papirus-icon-theme hyprpolkitagent gnome-keyring-daemon cliphist
 ```
 
 And run this with your AUR helper (example with yay):
 
 ```sh
-yay -S  zen-browser-bin peaclock bibata-cursor-theme kripton-theme-git papirus-folders-git
+yay -S  zen-browser-bin peaclock bibata-cursor-theme kripton-theme-git papirus-folders-git pay-respects-bin
 ```
 
 ### XDG base directories
