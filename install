@@ -1,0 +1,150 @@
+#!/bin/bash
+prompt() {
+    read -r -p $'\033[35m'"$1"$'\033[32m [Y/n] \033[0m' CHOICE
+    if [ -z "$CHOICE" ]; then 
+        echo 1 
+    else
+        case "$CHOICE" in 
+            y|Y ) echo 1;;
+            n|N ) echo 0;;
+        esac
+    fi
+}
+
+red() { 
+    printf '\033[31m%s\033[0m\n' "$*"; 
+}
+
+yellow() { 
+    printf '\033[33m%s\033[0m\n' "$*"; 
+}
+
+green() { 
+    printf '\033[32m%s\033[0m\n' "$*"; 
+}
+if ! command -v stow ; then
+    red "Stow is not installed, please install it first"
+    exit
+fi
+
+if ! git diff-index --quiet HEAD --; then
+    red "ERROR: The repo has uncommitted changes!"
+    yellow "The 'stow --adopt' maneuver will overwrite your uncommitted edits."
+    yellow "Please commit or stash your changes before running the install script."
+    exit 1
+fi
+
+OLD_DIR="$HOME/.local/old"
+
+if [ -e "$OLD_DIR" ]; then
+    i=1
+    while :; do
+        CANDIDATE="${OLD_DIR}_${i}"
+        if [ ! -e "$CANDIDATE" ]; then
+            OLD_DIR="$CANDIDATE"
+            break
+        fi
+        i=$((i+1))
+    done
+fi
+
+SRC=$(dirname "$0")
+DEST=$HOME
+CONFIG_FILE="$DEST/.config/dotfiles/config"
+mkdir -p "$(dirname "$CONFIG_FILE")"
+
+
+if [ ! -f "$CONFIG_FILE" ] || ! grep -q "REPO_ROOT=" "$CONFIG_FILE"; then
+    echo "REPO_ROOT=$SRC" > "$CONFIG_FILE"
+    green "Config created: REPO_ROOT set to $SRC"
+else
+    yellow "REPO_ROOT already set in $CONFIG_FILE. Skipping overwrite."
+fi
+
+green "Wellcome to dotfiles installation!"
+green "Conflicting configuration files will be moved to $OLD_DIR"
+green "After installation you can find your previous config files there."
+yellow "Warning!!! this installation assumes you have all necessary packages."
+green "If you dont have, install them firstly."
+
+if [ $(prompt "Continue?") = 0 ]; then
+    exit 1
+fi
+
+# Initialize/update submodules (auto walls scripts, nvim theme)
+green "Initializing submodules..."
+git submodule init
+git submodule update --recursive --remote
+
+mkdir -p $OLD_DIR/.config
+mkdir -p $OLD_DIR/.local
+mkdir -p $DEST/.config # Just in case
+mkdir -p $DEST/.local
+mkdir -p $DEST/.local/share/applications
+mkdir -p $DEST/.local/share/templates
+
+
+green "Backup old files"
+
+cp -r $DEST/.config $OLD_DIR
+cp -r $DEST/.local $OLD_DIR
+
+green "Installing everything from $SRC/home dir ..."
+
+cd $SRC/home
+stow -v -t $DEST * --adopt
+git restore "$SRC/home"
+git clean -fd "$SRC/home"
+cd $SRC
+# Move wallpapers.
+green "Installing wallpapers ..."
+
+mkdir -p $DEST/media/pictures/
+cp -r $SRC/wallpapers $DEST/media/pictures/
+
+# If there is powerprofilesctl installed, replace waybar start module with power-profiles module
+if command -v powerprofilesctl >/dev/null 2>&1; then
+    WAYBAR_FILES=(
+        "$DEST/.config/waybar/layouts/with_music.jsonc"
+        "$DEST/.config/waybar/layouts/with_window.jsonc"
+    )
+    
+    for FILE in "${WAYBAR_FILES[@]}"; do
+        sed -i 's|custom/start|power-profiles-daemon|g' "$FILE"
+    done
+fi
+
+# Change timezone in waybar clock module
+TIMEZONE=$(readlink -f /etc/localtime | sed 's|.*/zoneinfo/||')
+sed -i "s/\"timezone\": *\"[^\"]*\"/\"timezone\": \"${TIMEZONE//\//\\/}\"/" \
+    "$DEST/.config/waybar/modules.jsonc"
+
+if which papirus-folders >/dev/null 2>&1; then
+    green "Setting bluegrey folders for icon theme..."
+    papirus-folders -C bluegrey
+fi
+
+# Zen theme
+if [ $(prompt "Would you like to install custom zen-browser theme?") = 1 ]; then
+    ZEN_DIR=$(find "$DEST/.config/zen/" -name '*(release)' -type d | head -n 1)
+
+    if [ ! -e "$DEST/.config/zen" ] || [ -z "$ZEN_DIR" ]; then
+        yellow "WARNING! Could not find $DEST/.config/zen, perhaps zen-browser is not installed? (need to be ran atleast once)"
+        yellow "You should install the theme manually later."
+
+        echo ""
+        echo "Additional info:"
+        cat $SRC/.zen/README.md
+        echo ""
+    else 
+        if [ -d "$ZEN_DIR/chrome" ]; then
+            mkdir -p $OLD_DIR/.zen
+            mv "$ZEN_DIR/chrome" "$OLD_DIR/.zen"
+        fi
+
+        mkdir -p "$ZEN_DIR/chrome"
+        cp -r "$SRC/.zen/chrome/"* "$ZEN_DIR/chrome"
+    fi
+fi
+
+green "Installation finished! Hope you enjoy."

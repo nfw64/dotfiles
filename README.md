@@ -15,6 +15,7 @@ Minimalist, performance-oriented configuration for Hyprland on CachyOS.
 | **GTK Theme** | [Kripton](https://github.com/EliverLara/Kripton) / [Tokyonight](https://github.com/Fausto-Korpsvart/Tokyonight-GTK-Theme) (Light) |
 | **Icons** | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) |
 | **Fetch** | fastfetch |
+| **Original Author** | [cebem1nt](https://github.com/cebem1nt/dotfiles)
 
 ---
 
@@ -47,9 +48,9 @@ yay -S  zen-browser-bin peaclock bibata-cursor-theme kripton-theme-git
 > This means that some of your previous settings might be screwed up!
 
 You can change these configurations here:
-- [user-dirs.dirs](https://github.com/nfw64/dotfiles/blob/main/.config/user-dirs.dirs)
-- [environ.conf](https://github.com/nfw64/dotfiles/blob/main/.config/hypr/configs/environ.conf#L53)
-- [.zshrc](https://github.com/nfw64/dotfiles/blob/main/.config/zsh/.zshrc#L26)
+- [user-dirs.dirs](https://github.com/nfw64/dotfiles/blob/main/home/xdg/.config/user-dirs.dirs)
+- [environ.conf](https://github.com/nfw64/dotfiles/blob/main/home/hypr/.config/hypr/configs/environ.conf#L53)
+- [.zshrc](https://github.com/nfw64/dotfiles/blob/main/home/zsh/.config/zsh/.zshrc#L26)
 
 ### Bluegrey folders
 For this, install `papirus-folders` cli tool, or download and install icon pack with bluegrey folders [directly](https://www.gnome-look.org/p/1166289)
@@ -69,10 +70,9 @@ After successful installation, you can safely uninstall the script
 yay -Rns papirus-folders-git
 ```
 
-Now clone the repo & use stow:
+Now clone the repo & run the install script:
 
 ```sh
 git clone https://github.com/nfw64/dotfiles.git --depth=1
-cd dotfiles/root
-stow (currently working on it)
+./install
 ```
