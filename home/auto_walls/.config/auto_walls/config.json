@@ -1,11 +1,12 @@
 {
     "interval": 30, 
     "wallpapers_dir": "$XDG_PICTURES_DIR/wallpapers", 
-    "wallpapers_cli": "awww img <picture>", 
+    "wallpapers_cli": "awww img <picture> --transition-fps 60 --transition-type grow --transition-duration 0.8", 
     "keyboard_cli": "asusctl aura static -c <color>", 
     "keyboard_transition_cli": "asusctl aura breathe -c <prev> -C <color> -s high", 
     "change_backlight": false, 
-    "notify": true, 
+    "notify": true,
+    "transition_type": "grow",
     "transition_duration": 1,
     "backlight_transition": true, 
     "rofi_theme": "~/.config/rofi/themes/wallpapers.rasi"

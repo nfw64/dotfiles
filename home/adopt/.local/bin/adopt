@@ -2,16 +2,16 @@
 
 CONFIG_FILE="$HOME/.config/dotfiles/config"
 
-red() { 
-    printf '\033[31m%s\033[0m\n' "$*"; 
+red() {
+    printf '\033[31m%s\033[0m\n' "$*"
 }
 
-yellow() { 
-    printf '\033[33m%s\033[0m\n' "$*"; 
+yellow() {
+    printf '\033[33m%s\033[0m\n' "$*"
 }
 
-green() { 
-    printf '\033[32m%s\033[0m\n' "$*"; 
+green() {
+    printf '\033[32m%s\033[0m\n' "$*"
 }
 
 if [ -f "$CONFIG_FILE" ]; then
@@ -43,16 +43,17 @@ fi
 
 # pkg_name is the name of the folder/file being adopted
 PKG_NAME=$(basename "$TARGET_ITEM")
-REPO_PKG_DIR="$REPO_ROOT/$PKG_NAME/$REL_PATH"
+REPO_PKG_DIR="$REPO_ROOT/home/$PKG_NAME/$REL_PATH"
 
 mkdir -p "$REPO_PKG_DIR"
+green "$REPO_ROOT"
 red "--- ADOPTING TO: $REPO_PKG_DIR ---"
-stow -n -d "$REPO_ROOT" -t "$HOME" -v "$PKG_NAME"
+stow -n -v -d "$REPO_ROOT/home" -t "$HOME" -v "$PKG_NAME"
 red "--------------------------"
 yellow "(Enter to confirm, Ctrl+C to abort):"
 read -r confirmation
 
-mv "$TARGET_ITEM" "$REPO_PKG_DIR/"
-stow -d "$REPO_ROOT" -t "$HOME" -v "$PKG_NAME"
+mv "$TARGET_ITEM" "$REPO_PKG_DIR"
+stow -v -d "$REPO_ROOT/home" -t "$HOME" "$PKG_NAME"
 
 green "Successfully adopted $PKG_NAME!"
