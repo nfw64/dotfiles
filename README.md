@@ -31,13 +31,13 @@ Minimalist, performance-oriented configuration for Hyprland on CachyOS.
 The installation script assumes you have a minimal working system! Firstly lets install all the necessary packages. On arch based distros you can copy & paste this command:
 
 ```sh
-sudo pacman -S hyprland hyprlock hypridle waybar swaync alacritty cava rofi pavucontrol thunar zsh ttf-cascadia-code ttf-cascadia-code-nerd awww python-psutil eza fzf htop jq neovim xdg-desktop-portal-gtk xdg-desktop-portal-hyprland grim slurp nvtop nwg-look mission-center powertop qt6ct kvantum noto-fonts noto-fonts-emoji flameshot wtype papirus-icon-theme
+sudo pacman -S hyprland hyprlock hypridle waybar swaync alacritty cava rofi pavucontrol thunar zsh ttf-cascadia-code ttf-cascadia-code-nerd awww python-psutil eza fzf htop jq neovim xdg-desktop-portal-gtk xdg-desktop-portal-hyprland grim slurp nvtop nwg-look mission-center powertop qt6ct kvantum noto-fonts noto-fonts-emoji flameshot wtype papirus-icon-theme hyprpolkitagent
 ```
 
 And run this with your AUR helper (example with yay):
 
 ```sh
-yay -S  zen-browser-bin peaclock bibata-cursor-theme kripton-theme-git
+yay -S  zen-browser-bin peaclock bibata-cursor-theme kripton-theme-git papirus-folders-git
 ```
 
 ### XDG base directories
@@ -51,24 +51,6 @@ You can change these configurations here:
 - [user-dirs.dirs](https://github.com/nfw64/dotfiles/blob/main/home/xdg/.config/user-dirs.dirs)
 - [environ.conf](https://github.com/nfw64/dotfiles/blob/main/home/hypr/.config/hypr/configs/environ.conf#L53)
 - [.zshrc](https://github.com/nfw64/dotfiles/blob/main/home/zsh/.config/zsh/.zshrc#L26)
-
-### Bluegrey folders
-For this, install `papirus-folders` cli tool, or download and install icon pack with bluegrey folders [directly](https://www.gnome-look.org/p/1166289)
-
-```sh
-yay -S papirus-folders-git
-```
-
-```sh
-# Apply the color theme
-papirus-folders -C bluegrey
-```
-
-After successful installation, you can safely uninstall the script
-
-```sh
-yay -Rns papirus-folders-git
-```
 
 Now clone the repo & run the install script:
 

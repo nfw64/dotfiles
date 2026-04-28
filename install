@@ -34,7 +34,7 @@ if ! git diff-index --quiet HEAD --; then
     exit 1
 fi
 
-OLD_DIR="$HOME/.local/old"
+OLD_DIR="$HOME/dotfiles-backup"
 
 if [ -e "$OLD_DIR" ]; then
     i=1
@@ -48,7 +48,7 @@ if [ -e "$OLD_DIR" ]; then
     done
 fi
 
-SRC=$(dirname "$0")
+SRC=$(cd "$(dirname "$0")" && pwd)
 DEST=$HOME
 CONFIG_FILE="$DEST/.config/dotfiles/config"
 mkdir -p "$(dirname "$CONFIG_FILE")"
@@ -95,7 +95,7 @@ cd $SRC/home
 stow -v -t $DEST * --adopt
 git restore "$SRC/home"
 git clean -fd "$SRC/home"
-cd $SRC
+cd ../
 # Move wallpapers.
 green "Installing wallpapers ..."
 
@@ -118,10 +118,15 @@ fi
 TIMEZONE=$(readlink -f /etc/localtime | sed 's|.*/zoneinfo/||')
 sed -i "s/\"timezone\": *\"[^\"]*\"/\"timezone\": \"${TIMEZONE//\//\\/}\"/" \
     "$DEST/.config/waybar/modules.jsonc"
-
-if which papirus-folders >/dev/null 2>&1; then
-    green "Setting bluegrey folders for icon theme..."
-    papirus-folders -C bluegrey
+if [ $(prompt "Would you like to install papirus-folders bluegrey?") = 1 ]; then
+    if which papirus-folders >/dev/null 2>&1; then
+        green "Setting bluegrey folders for icon theme..."
+        papirus-folders -C bluegrey
+    else
+        yay -S papirus-folders
+        green "Setting bluegrey folders for icon theme..."
+        papirus-folders -C bluegrey
+    fi
 fi
 
 # Zen theme

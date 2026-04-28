@@ -22,13 +22,13 @@
             "click-to-reveal": true
         },
         "modules" : [
-            "custom/arrow-right", "power-profiles-daemon", "cpu", "load"
+            "custom/arrow-right", "cpu", "load"
         ]
     },
 
     "group/left-hidden-top" : {
         "orientation": "horizontal",
-        "modules" : [ "custom/start", "group/left-hidden" ]
+        "modules" : [ "power-profiles-daemon", "group/left-hidden" ]
     },
 
     "group/right" : {
