@@ -1,0 +1,13 @@
+/*
+* Css Colors
+* Generated with Matugen
+*/
+/* Material 3 Colors */
+<* for name, value in colors *>
+@define-color {{name}} {{value.default.hex}};
+<* endfor *>
+
+/* Base16 Colors (The Stealth Stuff) */
+<* for name, value in base16 *>
+@define-color {{name}} {{value.default.hex}};
+<* endfor *>

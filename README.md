@@ -37,20 +37,20 @@ curl -sS https://starship.rs/install.sh | sh
 ```
 
 ```sh
-sudo pacman -S hyprland hyprlock hypridle waybar swaync alacritty cava rofi pavucontrol thunar zsh awww python-psutil eza fzf htop jq neovim xdg-desktop-portal-gtk xdg-desktop-portal-hyprland grim slurp nvtop nwg-look mission-center powertop qt6ct kvantum noto-fonts noto-fonts-emoji flameshot wtype papirus-icon-theme hyprpolkitagent gnome-keyring-daemon cliphist network-manager-applet gvfs
+sudo pacman -S hyprland hyprlock hypridle waybar swaync alacritty cava rofi pavucontrol thunar zsh awww python-psutil eza fzf htop jq neovim xdg-desktop-portal-gtk xdg-desktop-portal-hyprland grim slurp nvtop nwg-look mission-center powertop qt6ct kvantum noto-fonts noto-fonts-emoji flameshot wtype papirus-icon-theme hyprpolkitagent gnome-keyring-daemon cliphist network-manager-applet gvfs zoxide brightnessctl
 ```
 
 And run this with your AUR helper (example with yay):
 
 ```sh
-yay -S  zen-browser-bin peaclock googledot-cursor-theme kripton-theme-git papirus-folders-git pay-respects-bin nerd-fonts-inter ttf-jetbrains-mono-nerd
+yay -S  zen-browser-bin peaclock kripton-theme-git papirus-folders-git pay-respects-bin nerd-fonts-inter ttf-jetbrains-mono-nerd
 ```
 
 ### XDG base directories
 
 > [!WARNING]  
 > My config files change [XDG base user directories](https://wiki.archlinux.org/title/XDG_Base_Directory#User_directories).
-> Instead of having `~/Desktop`, `~/Downloads`, `~/Pictures` I use `~/wsp`, `~/dow`, `~/med/pictures` ...
+> Instead of having `~/Desktop`, `~/Downloads`, `~/Pictures` I use `~/wsp`, `~/Media/pictures` ...
 > This means that some of your previous settings might be screwed up!
 
 You can change these configurations here:

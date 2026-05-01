@@ -90,7 +90,7 @@ cp -r $DEST/.local $OLD_DIR
 green "Installing everything from $SRC/home dir ..."
 
 cd $SRC/home
-stow -v -t $DEST * --adopt
+stow -v -t $DEST . --adopt
 git restore "$SRC/home"
 git clean -fd "$SRC/home"
 cd ../

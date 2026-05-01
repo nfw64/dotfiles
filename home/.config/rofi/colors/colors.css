@@ -1,0 +1,11 @@
+* {
+    /* E5 at the end adds transparency to the background */
+    background:     ##141318E5;
+    background-alt: ##201f25ff;
+    background-sec: ##48454eFF;
+    foreground:     ##e6e1e9ff;
+    selected:       ##cabeffff;
+    active:         ##edb8ccFF;
+    urgent:         ##ffb4abFF;
+    highlight:      rgba(202, 190, 255, 1);
+}
