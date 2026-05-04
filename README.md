@@ -1,7 +1,4 @@
 # My dotfiles
-[![Origin](https://img.shields.io/badge/Origin-GitHub-blue?style=flat-square&logo=github)](https://github.com/cebem1nt/dotfiles)
-
-Minimalist, performance-oriented configuration for Hyprland on CachyOS.
 
 ###  System Specs
 | Component | Choice |
@@ -9,13 +6,12 @@ Minimalist, performance-oriented configuration for Hyprland on CachyOS.
 | **Panel** | [Waybar](https://github.com/Alexays/Waybar) |
 | **Notifications** | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter) |
 | **Menus** | [Rofi](https://github.com/adi1090x/rofi) (Collection by adi1090x) |
-| **Terminal** | Alacritty |
+| **Terminal** | kitty |
 | **Shell** | Zsh ([zinit](https://github.com/zdharma-continuum/zinit)) |
-| **Font** | Jetbrains Mono (alacritty), Inter (system-wide)  |
-| **GTK Theme** | [Kripton](https://github.com/EliverLara/Kripton) / [Tokyonight](https://github.com/Fausto-Korpsvart/Tokyonight-GTK-Theme) (Light) |
+| **Font** | Jetbrains Mono (kitty, waybar), SF Pro (system-wide)  |
+| **GTK Theme** | [Kripton](https://github.com/EliverLara/Kripton) |
 | **Icons** | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) |
 | **Fetch** | fastfetch |
-| **Original Author** | [cebem1nt](https://github.com/cebem1nt/dotfiles)
 
 ---
 
@@ -26,7 +22,6 @@ Minimalist, performance-oriented configuration for Hyprland on CachyOS.
 ### Installation
 
 > [!WARNING]  
-> My dotfiles are __*laptop specific*__. Despite trying to make a flexible installation script, some of the things might not work! You better install everything manually based on your needs, or use this repository as an inspiration.
 
 The installation script assumes you have a minimal working system! Firstly lets install all the necessary packages. On arch based distros you can copy & paste this command:
 
@@ -37,21 +32,19 @@ curl -sS https://starship.rs/install.sh | sh
 ```
 
 ```sh
-sudo pacman -S hyprland hyprlock hypridle waybar swaync alacritty cava rofi pavucontrol thunar zsh awww python-psutil eza fzf htop jq neovim xdg-desktop-portal-gtk xdg-desktop-portal-hyprland grim slurp nvtop nwg-look mission-center powertop qt6ct kvantum noto-fonts noto-fonts-emoji flameshot wtype papirus-icon-theme hyprpolkitagent gnome-keyring-daemon cliphist network-manager-applet gvfs zoxide brightnessctl
+sudo pacman -S hyprland hyprlock hypridle waybar swaync kitty cava rofi pavucontrol thunar zsh awww python-psutil eza fzf htop jq neovim xdg-desktop-portal-gtk xdg-desktop-portal-hyprland grim slurp nvtop nwg-look mission-center powertop qt6ct kvantum noto-fonts noto-fonts-emoji flameshot wtype papirus-icon-theme hyprpolkitagent gnome-keyring cliphist network-manager-applet gvfs zoxide brightnessctl zathura stow hyprsunset
 ```
 
 And run this with your AUR helper (example with yay):
 
 ```sh
-yay -S  zen-browser-bin peaclock kripton-theme-git papirus-folders-git pay-respects-bin nerd-fonts-inter ttf-jetbrains-mono-nerd
+yay -S  zen-browser-bin peaclock kripton-theme-git papirus-folders-git pay-respects-bin matugen-bin apple-fonts ttf-jetbrains-mono-nerd
 ```
 
 ### XDG base directories
 
 > [!WARNING]  
 > My config files change [XDG base user directories](https://wiki.archlinux.org/title/XDG_Base_Directory#User_directories).
-> Instead of having `~/Desktop`, `~/Downloads`, `~/Pictures` I use `~/wsp`, `~/Media/pictures` ...
-> This means that some of your previous settings might be screwed up!
 
 You can change these configurations here:
 - [user-dirs.dirs](https://github.com/nfw64/dotfiles/blob/main/home/xdg/.config/user-dirs.dirs)

@@ -1,0 +1,22 @@
+{
+  "pulseaudio": {
+    "format": "{icon}  {volume} ",
+    "rotate": 0,
+    "format-muted": " ",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "hyprctl dispatch exec 'pavucontrol -t 4'",
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_SINK@ 1%+",
+    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_SINK@ 1%-",
+    "tooltip-format": "{icon} {desc} // {volume}%",
+    "scroll-step": 5,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+/*{
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "active-only": false,
+        "on-click": "activate",
+        "disable-scroll": false,
+        "on-scroll-up": "hyprctl dispatch workspace -1",
+        "on-scroll-down": "hyprctl dispatch workspace +1",
+        "persistent-workspaces": {}
+    }
+}*/
+{
+    "hyprland/workspaces": {
+      "all-outputs": true,
+      "active-only": false,
+      "on-click": "activate",
+      "disable-scroll": false,
+      "on-scroll-up": "hyprctl dispatch workspace -1",
+      "on-scroll-down": "hyprctl dispatch workspace +1",
+      "format": "{name} {windows}",
+      "format-window-separator": "",
+      "window-rewrite-default": "",
+      "window-rewrite": {
+        "title<.*youtube.*>": "", // Windows whose titles contain "youtube"
+        "class<zen>": "",
+        "class<kitty>": "",
+        "alacritty": "",
+        "neovim": "󰨞",
+        "thunar": ""
+        },
+    }
+}

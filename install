@@ -95,25 +95,13 @@ git restore "$SRC/home"
 git clean -fd "$SRC/home"
 cd ../
 # Move wallpapers.
-green "Installing wallpapers ..."
+green "Linking wallpapers ..."
 
 mkdir -p $DEST/Media/pictures/
 mkdir -p $DEST/Media/videos/
 mkdir -p $DEST/Media/music/
 mkdir -p $DEST/Media/docs/
-cp -r $SRC/wallpapers $DEST/Media/pictures/
-
-# If there is powerprofilesctl installed, replace waybar start module with power-profiles module
-if command -v powerprofilesctl >/dev/null 2>&1; then
-    WAYBAR_FILES=(
-        "$DEST/.config/waybar/layouts/with_music.jsonc"
-        "$DEST/.config/waybar/layouts/with_window.jsonc"
-    )
-
-    for FILE in "${WAYBAR_FILES[@]}"; do
-        sed -i 's|custom/start|power-profiles-daemon|g' "$FILE"
-    done
-fi
+ln -sf $SRC/wallpapers $DEST/Media/pictures/wallpapers
 
 # Change timezone in waybar clock module
 TIMEZONE=$(readlink -f /etc/localtime | sed 's|.*/zoneinfo/||')
@@ -127,29 +115,6 @@ if [ $(prompt "Would you like to install papirus-folders bluegrey?") = 1 ]; then
         yay -S papirus-folders-git
         green "Setting bluegrey folders for icon theme..."
         papirus-folders -C bluegrey
-    fi
-fi
-
-# Zen theme
-if [ $(prompt "Would you like to install custom zen-browser theme?") = 1 ]; then
-    ZEN_DIR=$(find "$DEST/.config/zen/" -name '*(release)' -type d | head -n 1)
-
-    if [ ! -e "$DEST/.config/zen" ] || [ -z "$ZEN_DIR" ]; then
-        yellow "WARNING! Could not find $DEST/.config/zen, perhaps zen-browser is not installed? (need to be ran atleast once)"
-        yellow "You should install the theme manually later."
-
-        echo ""
-        echo "Additional info:"
-        cat $SRC/.zen/README.md
-        echo ""
-    else
-        if [ -d "$ZEN_DIR/chrome" ]; then
-            mkdir -p $OLD_DIR/.zen
-            mv "$ZEN_DIR/chrome" "$OLD_DIR/.zen"
-        fi
-
-        mkdir -p "$ZEN_DIR/chrome"
-        cp -r "$SRC/.zen/chrome/"* "$ZEN_DIR/chrome"
     fi
 fi
 

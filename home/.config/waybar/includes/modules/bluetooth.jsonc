@@ -1,0 +1,9 @@
+{
+  "bluetooth": {
+        "format": " 󰂳 ",
+        "format-connected": " 󰂱 {device_alias} ",
+        "format-disabled": "", 
+        "format-off": "",
+        "on-click": "blueman-manager"
+    },
+}

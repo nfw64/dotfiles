@@ -1,21 +1,21 @@
 [config]
 # If you use swww for wallpapers
-wallpaper_tool = "swww" 
+wallpaper_tool = "awww" 
 swww_options = ["--transition-type", "grow"]
+type = "SchemeFidelity"
 
 [config.wallpaper]
 set = true
 command = "awww img --transition-type grow --transition-fps 60 --transition-duration 0.8 {{ image }}"
 
-type = "fidelity"
-
 [templates.neovim]
 input_path = '~/.config/matugen/templates/colors.json'
 output_path = '~/.config/matugen/colors.json'
 
-[templates.alacritty]
-input_path = '~/.config/matugen/templates/alacritty.toml'
-output_path = '~/.config/alacritty/theme.toml'
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/themes/Matugen.conf'
+post_hook = "kitty +kitten themes --reload-in=all Matugen"
 
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/matugen-hyprland.conf'
@@ -50,8 +50,13 @@ output_path = '~/.config/gtk-3.0/gtk.css'
 
 # Gtk4
 [templates.gtk4]
-input_path = '~/.config/matugen/templates/matugen-gtk.css'
+input_path = '~/.config/matugen/templates/matugen-gtk4.css'
 output_path = '~/.config/gtk-4.0/gtk.css'
+
+[templates.gtk4v2]
+input_path = '~/.config/matugen/templates/matugen-gtk4.css'
+output_path = '~/.config/gtk-4.0/gtk-dark.css'
+
 
 # Qt5
 [templates.qt5]
@@ -70,6 +75,6 @@ output_path = '~/.config/zathura/matugen-zathurarc'
 
 
 [templates.waybar]
-input_path = '~/.config/matugen/templates/colors.css'
-output_path = '~/.config/waybar/matugen-colors.css'
-post_hook = 'pkill waybar ; waybar &'
+input_path = '~/.config/matugen/templates/matugen-waybar'
+output_path = '~/.config/waybar/styles/matugen-colors.css'
+post_hook = 'pkill waybar ; waybar > /dev/null 2>&1 &'

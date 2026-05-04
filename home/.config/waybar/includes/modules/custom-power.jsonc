@@ -1,0 +1,21 @@
+{
+    "custom/power": {
+        "format": " ⏻ ",
+        "rotate": 0,
+        "tooltip": true,
+        "tooltip-format": " Logout menu",
+        "menu": "on-click-right",
+        "menu-file": "~/.config/waybar/includes/context/power.xml",
+        "menu-actions": {
+            "lock": "loginctl lock-session",
+            "logout": "hyprctl dispatch exit 0",
+            "shutdown-now": "shutdown now",
+            "shutdown-wait": "systemctl poweroff",
+            "reboot-now": "systemctl reboot",
+            "reboot-firmware": "systemctl reboot --firmware-setup",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate"
+        },
+        "interval": 86400
+    }
+}

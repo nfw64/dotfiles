@@ -1,0 +1,9 @@
+{
+  "custom/weather": {
+        "format": "{}°C",
+        "tooltip": false,
+        "interval": 3600,
+        "exec": "wttrbar --location 'Kuala Lipis'", // Pulling accurate local weather
+        "return-type": "json"
+    },
+}

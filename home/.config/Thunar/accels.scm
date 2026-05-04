@@ -123,7 +123,6 @@
 ; (gtk_accel_path "<Actions>/ThunarWindow/switch-next-tab-alt" "<Primary>Tab")
 ; (gtk_accel_path "<Actions>/ThunarActionManager/sendto-desktop" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/make-link" "")
-; (gtk_accel_path "<Actions>/ThunarBookmarks/aff2a3764866cd80a0b1cb6faae62c1b" "")
 (gtk_accel_path "<Actions>/ThunarActions/uca-action-1721171915130704-1" "<Primary>Return")
 ; (gtk_accel_path "<Actions>/ThunarWindow/zoom-reset-alt" "<Primary>KP_0")
 ; (gtk_accel_path "<Actions>/ThunarWindow/about" "")
