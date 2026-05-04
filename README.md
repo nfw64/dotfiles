@@ -20,9 +20,6 @@
 * Wallpaper management handled by `awww`
 
 ### Installation
-
-> [!WARNING]  
-
 The installation script assumes you have a minimal working system! Firstly lets install all the necessary packages. On arch based distros you can copy & paste this command:
 
 
