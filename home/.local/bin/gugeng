@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+themeConfDir="$HOME/.config/quickshell/theme.conf"
+
+if ! pgrep -x awww-daemon; then
+    awww-daemon --no-cache &
+    disown
+    sleep 1
+fi
+
+if grep -q "^1$" "$themeConfDir"; then
+    awww img "$1" \
+        --transition-fps 60 \
+        --transition-type grow \
+        --transition-duration 0.8
+fi

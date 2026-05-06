@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if command -v git; then
+    git clone https://aur.archlinux.org/declaro-git.git && cd declaro-git && makepkg -si
+elif command -v yay; then
+    yay -S declaro-git
+elif command -v paru; then
+    paru -S declaro-git
+else
+    echo "just install git bro"
+fi

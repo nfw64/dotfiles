@@ -2,7 +2,7 @@
 
 # BEGIN_KITTY_THEME
 # Matugen
-include current-theme.conf
+include include theme-colors.conf
 # END_KITTY_THEME
 
 #: Fonts {{{

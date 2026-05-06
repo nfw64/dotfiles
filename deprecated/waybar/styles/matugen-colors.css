@@ -1,0 +1,21 @@
+
+/* Matugen mapping for HyDE Waybar */
+
+@define-color main-bg #201730;
+@define-color main-fg #e7e0e7;
+
+/* Bar Background */
+@define-color bar-bg alpha(#151217, 0);
+
+/* Active States (Workspaces/Taskbar) */
+@define-color wb-act-bg #d5baff;
+@define-color wb-act-fg #3c2264;
+@define-color wb-act-color #3c2264;
+
+/* Hover States */
+@define-color wb-hvr-bg #cfc0e2;
+@define-color wb-hvr-fg #362c46;
+@define-color wb-hvr-color #362c46;
+
+/* Generic Color (often used for icons) */
+@define-color wb-color #d5baff;

@@ -10,7 +10,7 @@
   <property name="last-location-bar" type="string" value="ThunarLocationButtons"/>
   <property name="last-toolbar-items" type="string" value="menu:1,back:0,forward:0,open-parent:1,open-home:1,new-tab:0,new-window:0,toggle-split-view:0,undo:0,redo:0,zoom-out:0,zoom-in:0,zoom-reset:0,view-as-icons:0,view-as-detailed-list:0,view-as-compact-list:0,view-switcher:0,location-bar:1,reload:0,search:1,uca-action-1720621850636761-1:0,uca-action-1730572291852956-2:0,uca-action-1758831930937907-1:1"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,50,125,50,50,165,50,50,587,50,50,70,50,128"/>
+  <property name="last-details-view-column-widths" type="string" value="50,50,132,122,50,386,50,50,256,50,50,78,50,511"/>
   <property name="last-side-pane" type="string" value="THUNAR_SIDEPANE_TYPE_SHORTCUTS"/>
   <property name="last-image-preview-visible" type="bool" value="true"/>
   <property name="misc-use-csd" type="bool" value="true"/>
@@ -24,5 +24,5 @@
   <property name="last-sort-column" type="string" value="THUNAR_COLUMN_NAME"/>
   <property name="last-sort-order" type="string" value="GTK_SORT_ASCENDING"/>
   <property name="misc-symbolic-icons-in-toolbar" type="bool" value="true"/>
-  <property name="last-menubar-visible" type="bool" value="false"/>
+  <property name="last-menubar-visible" type="bool" value="true"/>
 </channel>

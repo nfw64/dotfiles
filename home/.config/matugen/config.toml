@@ -1,39 +1,21 @@
 [config]
 # If you use swww for wallpapers
-wallpaper_tool = "awww" 
-swww_options = ["--transition-type", "grow"]
+#wallpaper_tool = "awww" 
+#swww_options = ["--transition-type", "grow"]
 type = "SchemeFidelity"
 
-[config.wallpaper]
-set = true
-command = "awww img --transition-type grow --transition-fps 60 --transition-duration 0.8 {{ image }}"
+#[config.wallpaper]
+#set = false
+#command = "awww img --transition-type grow --transition-fps 60 --transition-duration 0.8 {{ image }}"
 
 [templates.neovim]
 input_path = '~/.config/matugen/templates/colors.json'
 output_path = '~/.config/matugen/colors.json'
 
-[templates.kitty]
-input_path = '~/.config/matugen/templates/kitty-colors.conf'
-output_path = '~/.config/kitty/themes/Matugen.conf'
-post_hook = "kitty +kitten themes --reload-in=all Matugen"
-
-[templates.hyprland]
-input_path = '~/.config/matugen/templates/matugen-hyprland.conf'
-output_path = '~/.config/hypr/matugen/matugen-hyprland.conf'
+[templates.hypr]
+input_path = '~/.config/matugen/templates/matugen-hypr.conf'
+output_path = '~/.config/hypr/matugen/matugen-hypr.conf'
 post_hook = 'hyprctl reload'
-
-[templates.hyprlock]
-input_path = '~/.config/matugen/templates/matugen-hyprlock.conf'
-output_path = '~/.config/hypr/hyprlock/matugen/matugen-hyprlock.conf'
-
-[templates.swaync]
-input_path = '~/.config/matugen/templates/matugen-swaync.css'
-output_path = '~/.config/swaync/matugen/matugen-swaync.css'
-post_hook = 'swaync-client -rs'
-
-[templates.rofi]
-input_path = '~/.config/matugen/templates/rofi.conf'
-output_path = '~/.config/rofi/themes/colors/colors.rasi'
 
 [templates.cava]
 input_path = '~/.config/matugen/templates/matugen-cava'
@@ -44,37 +26,30 @@ output_path = '~/.config/cava/config'
 input_path = '~/.config/matugen/templates/matugen.kvconfig'
 output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
 
-[templates.gtk3]
-input_path = '~/.config/matugen/templates/matugen-gtk.css'
-output_path = '~/.config/gtk-3.0/gtk.css'
-
-# Gtk4
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/matugen-gtk4.css'
 output_path = '~/.config/gtk-4.0/gtk.css'
+post_hook = "cp -f ~/.config/gtk-4.0/gtk.css ~/.config/gtk-4.0/gtk-dark.css"
 
-[templates.gtk4v2]
-input_path = '~/.config/matugen/templates/matugen-gtk4.css'
-output_path = '~/.config/gtk-4.0/gtk-dark.css'
-
-
-# Qt5
+# Qt
 [templates.qt5]
 input_path = '~/.config/matugen/templates/qtct-colors.conf'
 output_path = '~/.config/qt5ct/colors/matugen-qt5ct.conf'
+post_hook = 'cp -f ~/.config/qt5ct/colors/matugen-qt5ct.conf ~/.config/qt6ct/colors/matugen-qt6ct.conf'
 
-# Qt6
-[templates.qt6]
-input_path = '~/.config/matugen/templates/qtct-colors.conf'
-output_path = '~/.config/qt6ct/colors/matugen-qt6ct.conf'
+# Quickshell
+[templates.quickshell]
+input_path = '~/.config/matugen/templates/matugen-qs.json'
+output_path = '~/.config/quickshell/themeswitcher/themes.json'
 
 # Zathura
 [templates.zathura]
 input_path = '~/.config/matugen/templates/matugen-zathurarc'
 output_path = '~/.config/zathura/matugen-zathurarc'
 
+# Deprecated (handled by quickshell)
 
-[templates.waybar]
-input_path = '~/.config/matugen/templates/matugen-waybar'
-output_path = '~/.config/waybar/styles/matugen-colors.css'
-post_hook = 'pkill waybar ; waybar > /dev/null 2>&1 &'
+#[templates.kitty]
+#input_path = '~/.config/matugen/templates/kitty-colors.conf'
+#output_path = '~/.config/kitty/themes/Matugen.conf'
+#post_hook = "kitty +kitten themes --reload-in=all Matugen"

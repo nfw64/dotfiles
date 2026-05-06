@@ -1,5 +1,5 @@
 alias ls="eza"
-alias lsa="eza -a"
+alias lst="eza -aTL 2"
 alias lsl="eza -al"
 alias ztime="zinit times -m"
 alias zrel="exec zsh"
