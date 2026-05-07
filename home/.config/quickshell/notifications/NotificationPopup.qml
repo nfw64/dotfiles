@@ -22,6 +22,10 @@ Scope {
         }
     }
 
+    Process {
+        id: dnd_notify
+    }
+
     Variants {
         model: Quickshell.screens
 
@@ -72,15 +76,12 @@ Scope {
                         Layout.preferredHeight: cardContent.implicitHeight + 24
                         radius: 12
                         color: root.theme.bgBase
-                        border.color: modelData.urgency === NotificationUrgency.Critical ? root.theme.urgencyCritical :
-                                      modelData.urgency === NotificationUrgency.Low     ? root.theme.urgencyLow     : root.theme.bgBorder
+                        border.color: modelData.urgency === NotificationUrgency.Critical ? root.theme.urgencyCritical : modelData.urgency === NotificationUrgency.Low ? root.theme.urgencyLow : root.theme.bgBorder
                         border.width: 1
                         clip: true
 
                         Accessible.role: Accessible.StaticText
-                        Accessible.name: (modelData.urgency === NotificationUrgency.Critical ? "[Critical] " :
-                                         modelData.urgency === NotificationUrgency.Low       ? "[Low] "      : "") +
-                                         (modelData.appName || "Notification") + ": " + modelData.summary
+                        Accessible.name: (modelData.urgency === NotificationUrgency.Critical ? "[Critical] " : modelData.urgency === NotificationUrgency.Low ? "[Low] " : "") + (modelData.appName || "Notification") + ": " + modelData.summary
 
                         HoverHandler {
                             id: cardHover
@@ -89,7 +90,8 @@ Scope {
 
                         NumberAnimation on opacity {
                             id: entryAnim
-                            from: 0; to: 1
+                            from: 0
+                            to: 1
                             duration: 200
                             easing.type: Easing.OutCubic
                             running: false
@@ -103,8 +105,7 @@ Scope {
                             anchors.left: parent.left
                             anchors.leftMargin: 6
                             anchors.verticalCenter: parent.verticalCenter
-                            color: notifCard.modelData.urgency === NotificationUrgency.Critical ? root.theme.urgencyCritical :
-                                   notifCard.modelData.urgency === NotificationUrgency.Low      ? root.theme.urgencyLow      : root.theme.urgencyNormal
+                            color: notifCard.modelData.urgency === NotificationUrgency.Critical ? root.theme.urgencyCritical : notifCard.modelData.urgency === NotificationUrgency.Low ? root.theme.urgencyLow : root.theme.urgencyNormal
                         }
 
                         ColumnLayout {
@@ -137,17 +138,23 @@ Scope {
                                         visible: notifCard.modelData.appIcon === ""
                                         text: {
                                             const name = notifCard.modelData.appName.toLowerCase();
-                                            if (notifCard.modelData.urgency === NotificationUrgency.Critical) return "󰀦";
-                                            if (name.includes("discord"))  return "󰙯";
-                                            if (name.includes("firefox"))  return "󰈹";
-                                            if (name.includes("chrome"))   return "";
-                                            if (name.includes("telegram")) return "";
-                                            if (name.includes("spotify"))  return "󰓇";
-                                            if (name.includes("terminal") || name.includes("kitty") || name.includes("alacritty")) return "";
+                                            if (notifCard.modelData.urgency === NotificationUrgency.Critical)
+                                                return "󰀦";
+                                            if (name.includes("discord"))
+                                                return "󰙯";
+                                            if (name.includes("firefox"))
+                                                return "󰈹";
+                                            if (name.includes("chrome"))
+                                                return "";
+                                            if (name.includes("telegram"))
+                                                return "";
+                                            if (name.includes("spotify"))
+                                                return "󰓇";
+                                            if (name.includes("terminal") || name.includes("kitty") || name.includes("alacritty"))
+                                                return "";
                                             return "󰂚";
                                         }
-                                        color: notifCard.modelData.urgency === NotificationUrgency.Critical
-                                               ? root.theme.urgencyCritical : root.theme.urgencyNormal
+                                        color: notifCard.modelData.urgency === NotificationUrgency.Critical ? root.theme.urgencyCritical : root.theme.urgencyNormal
                                         font.pixelSize: 14
                                         font.family: "Hack Nerd Font"
                                     }
@@ -161,7 +168,9 @@ Scope {
                                     Layout.alignment: Qt.AlignVCenter
                                 }
 
-                                Item { Layout.fillWidth: true }
+                                Item {
+                                    Layout.fillWidth: true
+                                }
 
                                 Rectangle {
                                     width: 20
@@ -255,7 +264,9 @@ Scope {
                                         color: actionHover.containsMouse ? root.theme.bgBorder : root.theme.bgSurface
 
                                         Behavior on color {
-                                            ColorAnimation { duration: 100 }
+                                            ColorAnimation {
+                                                duration: 100
+                                            }
                                         }
 
                                         Accessible.role: Accessible.Button
@@ -294,20 +305,19 @@ Scope {
                                     height: parent.height
                                     width: parent.width
                                     radius: 1
-                                    color: notifCard.modelData.urgency === NotificationUrgency.Critical
-                                           ? root.theme.urgencyCritical : root.theme.urgencyNormal
+                                    color: notifCard.modelData.urgency === NotificationUrgency.Critical ? root.theme.urgencyCritical : root.theme.urgencyNormal
                                     opacity: 0.6
 
                                     SequentialAnimation {
                                         running: notifCard.modelData.urgency !== NotificationUrgency.Critical
-                                        PauseAnimation { duration: 50 }
+                                        PauseAnimation {
+                                            duration: 50
+                                        }
                                         NumberAnimation {
                                             target: progressBar
                                             property: "width"
                                             to: 0
-                                            duration: notifCard.modelData.expireTimeout > 0
-                                                      ? notifCard.modelData.expireTimeout * 1000
-                                                      : 5000
+                                            duration: notifCard.modelData.expireTimeout > 0 ? notifCard.modelData.expireTimeout * 1000 : 5000
                                         }
                                     }
                                 }

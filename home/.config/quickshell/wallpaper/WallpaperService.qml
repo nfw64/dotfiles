@@ -60,7 +60,7 @@ Singleton {
         notifyd.running = true;
 
         if (themeConfRead.themeIndex === 1) {
-            notifyd.command = ["notify-send", "-a", "Matugen", "-n", "settings", "Processing theme ..."];
+            notifyd.command = ["notify-send", "-a", "Matugen", "-n", "settings", "Processing theme ...."];
             setProca.command = ["awww", "img", "--transition-type", "grow", "--transition-fps", "60", "--transition-duration", "0.8", path];
             setProca.running = true;
             setProcess.command = ["matugen", "--source-color-index", "0", "image", path];

@@ -21,15 +21,28 @@ post_hook = 'hyprctl reload'
 input_path = '~/.config/matugen/templates/matugen-cava'
 output_path = '~/.config/cava/config'
 
+[templates.firefox-website-colors]
+input_path = "~/.config/matugen/templates/firefox-colors.css"
+output_path = "~/.config/mozilla/firefox/uArVGrqD.Profile 1/colors.css"
+
+[templates.pywalfox]
+input_path = '~/.config/matugen/templates/pywalfox-colors.json'
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update'
+
 # Kvantum
 [templates.kvantum]
 input_path = '~/.config/matugen/templates/matugen.kvconfig'
 output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
 
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/matugen-gtk.css'
+output_path = '~/.themes/adw-gtk3-dark-local/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark-local" && gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark-local"'
+
 [templates.gtk4]
-input_path = '~/.config/matugen/templates/matugen-gtk4.css'
-output_path = '~/.config/gtk-4.0/gtk.css'
-post_hook = "cp -f ~/.config/gtk-4.0/gtk.css ~/.config/gtk-4.0/gtk-dark.css"
+input_path = '~/.config/matugen/templates/matugen-gtk.css'
+output_path = '~/.themes/adw-gtk3-dark-local/gtk-4.0/colors.css'
 
 # Qt
 [templates.qt5]
@@ -42,14 +55,16 @@ post_hook = 'cp -f ~/.config/qt5ct/colors/matugen-qt5ct.conf ~/.config/qt6ct/col
 input_path = '~/.config/matugen/templates/matugen-qs.json'
 output_path = '~/.config/quickshell/themeswitcher/themes.json'
 
-# Zathura
-[templates.zathura]
-input_path = '~/.config/matugen/templates/matugen-zathurarc'
-output_path = '~/.config/zathura/matugen-zathurarc'
-
 # Deprecated (handled by quickshell)
 
 #[templates.kitty]
 #input_path = '~/.config/matugen/templates/kitty-colors.conf'
 #output_path = '~/.config/kitty/themes/Matugen.conf'
 #post_hook = "kitty +kitten themes --reload-in=all Matugen"
+
+
+#uninstalled
+# Zathura
+#[templates.zathura]
+#input_path = '~/.config/matugen/templates/matugen-zathurarc'
+#output_path = '~/.config/zathura/matugen-zathurarc'

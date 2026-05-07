@@ -26,4 +26,3 @@ image/x-portable-graymap=org.gnome.eog.desktop;
 image/x-portable-pixmap=org.gnome.eog.desktop;
 image/x-xbitmap=org.gnome.eog.desktop;
 image/x-xpixmap=org.gnome.eog.desktop;
-x-scheme-handler/terminal=alacritty.desktop;

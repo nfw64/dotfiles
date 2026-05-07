@@ -13,6 +13,17 @@
 	<directories/>
 </action>
 <action>
+	<icon></icon>
+	<name>Extract here</name>
+	<submenu></submenu>
+	<unique-id>1778121559629423-1</unique-id>
+	<command>7x x %n</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<other-files/>
+</action>
+<action>
 	<icon>preferences-desktop-wallpaper</icon>
 	<name>Set as wallpaper</name>
 	<submenu></submenu>

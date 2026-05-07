@@ -3,9 +3,9 @@
 ###  System Specs
 | Component | Choice |
 | :--- | :--- |
-| **Panel** | [Waybar](https://github.com/Alexays/Waybar) |
-| **Notifications** | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter) |
-| **Menus** | [Rofi](https://github.com/adi1090x/rofi) (Collection by adi1090x) |
+| **Panel** | Quickshell |
+| **Notifications** | Quickshell |
+| **Some menus** | [Rofi](https://github.com/adi1090x/rofi) (Collection by adi1090x) |
 | **Terminal** | kitty |
 | **Shell** | Zsh ([zinit](https://github.com/zdharma-continuum/zinit)) |
 | **Font** | Jetbrains Mono (kitty, waybar), SF Pro (system-wide)  |
@@ -29,13 +29,13 @@ curl -sS https://starship.rs/install.sh | sh
 ```
 
 ```sh
-sudo pacman -S hyprland hyprlock hypridle waybar swaync kitty cava rofi pavucontrol thunar zsh awww python-psutil eza fzf htop jq neovim xdg-desktop-portal-gtk xdg-desktop-portal-hyprland grim slurp nvtop nwg-look mission-center powertop qt6ct kvantum noto-fonts noto-fonts-emoji flameshot wtype papirus-icon-theme hyprpolkitagent gnome-keyring cliphist network-manager-applet gvfs zoxide brightnessctl zathura stow hyprsunset npm
+sudo pacman -S hyprland hyprlock hypridle waybar swaync kitty cava rofi pavucontrol thunar zsh awww python-psutil eza fzf htop jq neovim xdg-desktop-portal-gtk xdg-desktop-portal-hyprland grim slurp nvtop nwg-look mission-center powertop qt6ct kvantum noto-fonts noto-fonts-emoji flameshot wtype papirus-icon-theme hyprpolkitagent gnome-keyring cliphist network-manager-applet gvfs zoxide brightnessctl zathura stow hyprsunset npm declaro firefox
 ```
 
 And run this with your AUR helper (example with yay):
 
 ```sh
-yay -S  zen-browser-bin quickshell-git kripton-theme-git papirus-folders-git pay-respects-bin matugen-bin apple-fonts ttf-jetbrains-mono-nerd
+yay -S quickshell-git kripton-theme-git papirus-folders-git pay-respects-bin matugen-bin apple-fonts ttf-jetbrains-mono-nerd
 ```
 
 ### XDG base directories
